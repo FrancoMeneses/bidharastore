@@ -1,118 +1,121 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Layout from "@/components/layout";
+import Image from "next/image";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStore, faShippingFast, faRightLong } from '@fortawesome/free-solid-svg-icons'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <Layout title='Inicio - Bidhara'>
+      <div className='w-full'>
+        {/* Banner 1 */}
+        <div className='w-full h-[144px] md:h-[500px]'>
+          <Image className='w-full h-full object-cover'
+            src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682557387/Bidhara/pages/inicio/banner-2.jpg'
+            alt='Flores comestibles'
+            width={1600}
+            height={1066}
+          />
+        </div>
+        {/* Container sections */}
+        <div className='flex flex-col px-2 justify-center items-center'>
+          {/* First section INTRO */}
+          <div className='flex flex-col gap-4 my-6 px-2 md:px-16'>
+            <h1 className='text-[18px] text-center font-semibold md:text-[28px]'>
+              Lorem ipsum dolor sit amet
+            </h1>
+            <p className='text-[14px] text-justify md:text-[20px]'>
+              Lorem ipsum dolor sit amet consectetur. Malesuada faucibus nisi sit non lacus quis nunc in risus.
+              Convallis enim urna dui volutpat. In urna bibendum vitae est ut. Elementum habitant mi proin suspendisse.
+              Congue orci nibh vulputate volutpat proin id commodo amet. Ut consectetur aliquam a vestibulum et quis.
+              Aliquam nibh mattis cursus vel iaculis mattis volutpat magna faucibus.
+            </p>
+          </div>
+          {/* Second section PEDIDO */}
+          <div className='my-6 px-2 md:px-16 flex flex-col gap-6'>
+            <h2 className='text-[18px] text-center font-semibold md:text-[28px]'>Pasos para realizar un pedido</h2>
+            <div className='w-full h-auto grid grid-cols-3 grid-rows-2 gap-2 place-content-center place-items-center lg:flex lg:gap-4 lg:justify-between lg:items-center'>
+              <div className='flex flex-col justify-between items-center gap-1 md:h-[185px] lg:gap-6 lg:h-[230px]'>
+                <Image className='w-[38px] h-[55px] md:w-[76px] md:h-[111px] lg:w-[100px] lg:h-[145px]'
+                  src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682559897/Bidhara/Cart_index_uphsdr.svg'
+                  alt='Carrito'
+                  width={38}
+                  height={55} />
+                <p className='text-[12px] text-center md:text-[15px] lg:text-[16px]'>
+                  Visita la tienda y agrega los productos a tu carrito
+                </p>
+              </div>
+              <FontAwesomeIcon icon={faRightLong} className='text-[39px] text-[#0495A8]' />
+              <div className='flex flex-col justify-between items-center gap-1 md:h-[185px] lg:gap-6 lg:h-[230px]'>
+                <FontAwesomeIcon icon={faWhatsapp} className='text-[39px] md:text-[90px] lg:text-[130px] text-[#0495A8]' />
+                <p className='text-[12px] text-center md:text-[15px] lg:text-[16px]'>
+                  Realiza el pedido en la página y te enviará a nuestro WhatsApp con los detalles de tu pedido
+                </p>
+              </div>
+              <FontAwesomeIcon icon={faRightLong} className='hidden lg:block text-[39px] text-[#0495A8]' />
+              <div className='flex flex-col justify-between items-center gap-1 lg:gap-6 lg:h-[230px]'>
+                <FontAwesomeIcon icon={faStore} className='text-[39px] md:text-[90px] lg:text-[114px] text-[#0495A8]' />
+                <p className='text-[12px] text-center md:text-[15px] lg:text-[16px]'>
+                  Te responderemos para acordar tu pedido y empezaremos a prepararlo
+                </p>
+              </div>
+              <FontAwesomeIcon icon={faRightLong} className='text-[39px] text-[#0495A8]' />
+              <div className='flex flex-col justify-between items-center gap-1 lg:gap-6 lg:h-[230px]'>
+                <FontAwesomeIcon icon={faShippingFast} className='text-[39px] md:text-[90px] lg:text-[114px] text-[#0495A8]' />
+                <p className='text-[12px] text-center md:text-[15px] lg:text-[16px]'>
+                  Enviaremos tus productos en la fecha y hora acordada
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* third section CATEGORIAS */}
+          <div className='flex flex-col w-full my-6 px-2 md:px-4 gap-6 justify-center items-center'>
+            <h2 className='text-[18px] text-center font-semibold md:text-[28px]'>Categorías</h2>
+            <div className='grid grid-rows-2 grid-cols-2 place-content-center place-items-center content-center gap-0 w-auto md:flex md:w-full'>
+              <div className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
+                <p className='absolute left-[50%] translate-x-[-50%] mt-1 rounded-md h-fit text-center text-[11px] font-light text-white backdrop-blur-md md:font-semibold md:text-[16px] lg:text-[24px]'>Brotes - Microgreens</p>
+                <Image className='w-full h-full object-cover rounded-tl-lg md:rounded-l-lg'
+                  src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682562595/Bidhara/pages/inicio/categorias/cat-brotes-micro.jpg'
+                  alt='Categoria de brotes o microgreens'
+                  width={1600}
+                  height={781}
+                />
+              </div>
+              <div className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
+                <p className='absolute left-[50%] translate-x-[-50%] mt-1 rounded-md h-fit text-center text-[11px] font-light text-white backdrop-blur-md md:font-semibold md:text-[16px] lg:text-[24px]'>Flores comestibles</p>
+                <Image className='w-full h-full object-cover rounded-tr-lg md:rounded-none'
+                  src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682562595/Bidhara/pages/inicio/categorias/cat-flores-comestibles.jpg'
+                  alt='Categoria de flores comestibles'
+                  width={1600}
+                  height={781}
+                />
+              </div>
+              <div className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
+                <p className='absolute left-[50%] translate-x-[-50%] mt-1 rounded-md h-fit text-center text-[11px] font-light text-white backdrop-blur-md md:font-semibold md:text-[16px] lg:text-[24px]'>Hojas baby</p>
+                <Image className='w-full h-full object-cover rounded-bl-lg md:rounded-none'
+                  src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682562595/Bidhara/pages/inicio/categorias/cat-hojas-baby.jpg'
+                  alt='Categoria de hojas baby'
+                  width={1600}
+                  height={781}
+                />
+              </div>
+              <div className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
+                <p className='absolute left-[50%] translate-x-[-50%] mt-1 rounded-md h-fit text-center text-[11px] font-light text-white backdrop-blur-md md:font-semibold md:text-[16px] lg:text-[24px]'>Microvegetales</p>
+                <Image className='w-full h-full object-cover rounded-br-lg md:rounded-r-lg'
+                  src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682562595/Bidhara/pages/inicio/categorias/cat-microvegetales.jpg'
+                  alt='Categoria de microvegetales'
+                  width={1600}
+                  height={1066}
+                />
+              </div>
+            </div>
+          </div>
+          {/* Fourth section PRODUCTOS MAS VENDIDOS */}
+          <div className='flex flex-col w-full my-6 px-2 md:px-4 gap-6 justify-center items-center'>
+          <h2 className='text-[18px] text-center font-semibold md:text-[28px]'>Productos más vendidos</h2>
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </Layout>
   )
 }
