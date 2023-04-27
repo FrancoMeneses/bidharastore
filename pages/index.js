@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStore, faShippingFast, faRightLong } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -112,7 +113,10 @@ export default function Home() {
           </div>
           {/* Fourth section PRODUCTOS MAS VENDIDOS */}
           <div className='flex flex-col w-full my-6 px-2 md:px-4 gap-6 justify-center items-center'>
-          <h2 className='text-[18px] text-center font-semibold md:text-[28px]'>Productos más vendidos</h2>
+            <h2 className='text-[18px] text-center font-semibold md:text-[28px]'>Productos más vendidos</h2>
+            <button type='button' className='w-[191px] h-[41px] bg-[#0495A8] border-[#014D64] border-2 rounded-full transition ease-in duration-150 lg:w-[333px] lg:h-[70px] lg:hover:bg-[#014D64]'>
+              <Link href='/tienda' className='font-semibold text-white text-[14px] lg:text-[30px]'>Visitar toda la tienda</Link>
+            </button>
           </div>
         </div>
       </div>

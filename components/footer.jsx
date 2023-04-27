@@ -7,7 +7,7 @@ export default function Footer() {
 
   return(
     <footer className='w-full h-[123px] md:h-[250px] lg:h-[300px] bg-[#00243E] flex flex-col items-center justify-between'>
-      <div className=' w-full h-full flex items-center justify-between px-1 md:px-6 lg:px-12'>
+      <div className=' w-full h-full flex items-center justify-between px-2 md:px-6 lg:px-12'>
         <Link href='/' className='w-[62px] h-[38px] md:w-[192px] md:h-[117px] lg:w-[314px] lg:h-[192px]'>
           <Image
           className='w-auto h-auto'
@@ -16,9 +16,9 @@ export default function Footer() {
           width={62}
           height={38} />
         </Link>
-        <div className="flex flex-col justify-center items-center">
+        <div className='flex flex-col justify-center items-center font-text gap-2'>
           <p className='text-[10px] md:text-[17px] lg:text-[20px] text-white'>SECCIONES</p>
-          <ul className='text-[8px] md:text-[14px] lg:text-[18px] text-white text-center flex flex-col gap-1'>
+          <ul className='text-[8px] md:text-[14px] lg:text-[18px] text-white text-center flex flex-col gap-[5px]'>
             <li>
               <Link href='/'>INICIO</Link>
             </li>
@@ -33,9 +33,9 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col justify-center items-center">
+        <div className='flex flex-col justify-center items-center font-text gap-2'>
           <p className='text-[10px] md:text-[17px] lg:text-[20px] text-white'>CATEGORÍAS</p>
-          <ul className='text-[8px] md:text-[14px] lg:text-[18px] text-white text-center flex flex-col gap-1'>
+          <ul className='text-[8px] md:text-[14px] lg:text-[18px] text-white text-center flex flex-col gap-[5px]'>
             <li>
               <Link href='/'>BROTES - MICROGREENS</Link>
             </li>
@@ -50,7 +50,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className='flex flex-col justify-between items-center gap-1'>
+        <div className='flex flex-col justify-between items-center gap-1 font-text'>
           <p className='text-[10px] md:text-[17px] lg:text-[20px] text-white'>¡REALIZA UN PEDIDO!</p>
           <FontAwesomeIcon icon={faWhatsapp} className='md:text-[32px] lg:text-[40px] text-white' />
           <p className='text-[10px] md:text-[17px] lg:text-[20px] text-white'>¡SÍGUENOS!</p>
@@ -60,7 +60,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <p className='text-[8px] md:text-[14px] text-white'>Derechos de autor © 2023 Bidhara - Gastrogarden</p>
+      <p className='text-[8px] md:text-[14px] text-white font-text'>Derechos de autor © 2023 Bidhara - Gastrogarden</p>
     </footer>
   )
 }
