@@ -48,7 +48,7 @@ export default function Navbar(){
             <Link href='/' className={router.pathname == '/' || router.pathname == '/inicio' ? 'underline underline-offset-2' : ''}>INICIO</Link>
           </li>
           <li className='hover:underline hover:underline-offset-2 transition ease-in-out duration-300'>
-            <Link href='/tienda' className={router.pathname == '/tienda' ? 'underline underline-offset-2' : ''}>TIENDA</Link>
+            <Link href='/tienda/brotes-microgreens' className={router.pathname == '/tienda' ? 'underline underline-offset-2' : ''}>TIENDA</Link>
           </li>
           <li className='hover:underline hover:underline-offset-2 transition ease-in-out duration-300'>
             <Link href='/nosotros' className={router.pathname == '/nosotros' ? 'underline underline-offset-2' : ''}>NOSOTROS</Link>
@@ -74,7 +74,7 @@ export default function Navbar(){
               <Link href='/' className={router.pathname == '/' || router.pathname == '/inicio' ? 'underline underline-offset-2' : ''} >INICIO</Link>
           </li>
           <li className='hidden'>
-              <Link href='/tienda' className={router.pathname == '/tienda' ? 'underline underline-offset-2' : ''} >TIENDA</Link>
+              <Link href='/tienda/brotes-microgreens' className={router.pathname == '/tienda' ? 'underline underline-offset-2' : ''} >TIENDA</Link>
           </li>
           <li className='hidden'>
               <Link href='/nosotros' className={router.pathname == '/nosotros' ? 'underline underline-offset-2' : ''} >NOSOTROS</Link>

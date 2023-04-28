@@ -23,7 +23,7 @@ export default function Footer() {
               <Link href='/'>INICIO</Link>
             </li>
             <li>
-              <Link href='/'>TIENDA</Link>
+              <Link href='/tienda/brotes-microgreens'>TIENDA</Link>
             </li>
             <li>
               <Link href='/nosotros'>NOSOTROS</Link>
@@ -37,7 +37,7 @@ export default function Footer() {
           <p className='text-[10px] md:text-[17px] lg:text-[20px] text-white'>CATEGORÍAS</p>
           <ul className='text-[8px] md:text-[14px] lg:text-[18px] text-white text-center flex flex-col gap-[5px]'>
             <li>
-              <Link href='/'>BROTES - MICROGREENS</Link>
+              <Link href='/tienda/brotes-microgreens'>BROTES - MICROGREENS</Link>
             </li>
             <li>
               <Link href='/'>FLORES COMESTIBLES</Link>
