@@ -4,13 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStore, faShippingFast, faRightLong } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import Link from "next/link";
+import Productcard from "@/components/productcard";
 
 export default function Home() {
   return (
     <Layout title='Inicio - Bidhara'>
-      <div className='w-full'>
+      <div className='w-full h-fit'>
         {/* Banner 1 */}
-        <div className='w-full h-[144px] md:h-[500px]'>
+        <div className='w-full h-[144px] md:h-[300px] lg:h-[500px]'>
           <Image className='w-full h-full object-cover'
             src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682557387/Bidhara/pages/inicio/banner-2.jpg'
             alt='Flores comestibles'
@@ -21,7 +22,7 @@ export default function Home() {
         {/* Container sections */}
         <div className='flex flex-col px-2 justify-center items-center'>
           {/* First section INTRO */}
-          <div className='flex flex-col gap-4 my-6 px-2 md:px-16'>
+          <section id='intro' className='flex flex-col gap-4 my-6 px-2 md:px-16'>
             <h1 className='text-[18px] text-center font-semibold md:text-[28px]'>
               Lorem ipsum dolor sit amet
             </h1>
@@ -31,9 +32,9 @@ export default function Home() {
               Congue orci nibh vulputate volutpat proin id commodo amet. Ut consectetur aliquam a vestibulum et quis.
               Aliquam nibh mattis cursus vel iaculis mattis volutpat magna faucibus.
             </p>
-          </div>
+          </section>
           {/* Second section PEDIDO */}
-          <div className='my-6 px-2 md:px-16 flex flex-col gap-6'>
+          <section id='pasosparapedido' className='my-6 px-2 md:px-16 flex flex-col gap-6'>
             <h2 className='text-[18px] text-center font-semibold md:text-[28px]'>Pasos para realizar un pedido</h2>
             <div className='w-full h-auto grid grid-cols-3 grid-rows-2 gap-2 place-content-center place-items-center lg:flex lg:gap-4 lg:justify-between lg:items-center'>
               <div className='flex flex-col justify-between items-center gap-1 md:h-[185px] lg:gap-6 lg:h-[230px]'>
@@ -68,12 +69,12 @@ export default function Home() {
                 </p>
               </div>
             </div>
-          </div>
+          </section>
           {/* third section CATEGORIAS */}
-          <div className='flex flex-col w-full my-6 px-2 md:px-4 gap-6 justify-center items-center'>
+          <section id='categorias' className='flex flex-col w-full my-6 px-2 md:px-4 gap-6 justify-center items-center'>
             <h2 className='text-[18px] text-center font-semibold md:text-[28px]'>Categorías</h2>
             <div className='grid grid-rows-2 grid-cols-2 place-content-center place-items-center content-center gap-0 w-auto md:flex md:w-full'>
-              <div className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
+              <Link href='/tienda/brotes-microgreens' className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
                 <p className='absolute left-[50%] translate-x-[-50%] mt-1 rounded-md h-fit text-center text-[11px] font-light text-white backdrop-blur-md md:font-semibold md:text-[16px] lg:text-[24px]'>Brotes - Microgreens</p>
                 <Image className='w-full h-full object-cover rounded-tl-lg md:rounded-l-lg'
                   src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682562595/Bidhara/pages/inicio/categorias/cat-brotes-micro.jpg'
@@ -81,8 +82,8 @@ export default function Home() {
                   width={1600}
                   height={781}
                 />
-              </div>
-              <div className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
+              </Link>
+              <Link href='/tienda/flores-comestibles' className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
                 <p className='absolute left-[50%] translate-x-[-50%] mt-1 rounded-md h-fit text-center text-[11px] font-light text-white backdrop-blur-md md:font-semibold md:text-[16px] lg:text-[24px]'>Flores comestibles</p>
                 <Image className='w-full h-full object-cover rounded-tr-lg md:rounded-none'
                   src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682562595/Bidhara/pages/inicio/categorias/cat-flores-comestibles.jpg'
@@ -90,8 +91,8 @@ export default function Home() {
                   width={1600}
                   height={781}
                 />
-              </div>
-              <div className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
+              </Link>
+              <Link href='/tienda/hojas-baby' className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
                 <p className='absolute left-[50%] translate-x-[-50%] mt-1 rounded-md h-fit text-center text-[11px] font-light text-white backdrop-blur-md md:font-semibold md:text-[16px] lg:text-[24px]'>Hojas baby</p>
                 <Image className='w-full h-full object-cover rounded-bl-lg md:rounded-none'
                   src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682562595/Bidhara/pages/inicio/categorias/cat-hojas-baby.jpg'
@@ -99,8 +100,8 @@ export default function Home() {
                   width={1600}
                   height={781}
                 />
-              </div>
-              <div className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
+              </Link>
+              <Link href='/tienda/microvegetales' className='relative flex flex-col w-[150px] h-[212px] md:h-[350px] md:w-[0px] md:grow md:hover:w-[250px] lg:w-[0px] lg:h-[500px] lg:grow transition-width ease-linear duration-500 lg:hover:w-[400px]'>
                 <p className='absolute left-[50%] translate-x-[-50%] mt-1 rounded-md h-fit text-center text-[11px] font-light text-white backdrop-blur-md md:font-semibold md:text-[16px] lg:text-[24px]'>Microvegetales</p>
                 <Image className='w-full h-full object-cover rounded-br-lg md:rounded-r-lg'
                   src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682562595/Bidhara/pages/inicio/categorias/cat-microvegetales.jpg'
@@ -108,16 +109,28 @@ export default function Home() {
                   width={1600}
                   height={1066}
                 />
-              </div>
+              </Link>
             </div>
-          </div>
+          </section>
           {/* Fourth section PRODUCTOS MAS VENDIDOS */}
-          <div className='flex flex-col w-full my-6 px-2 md:px-4 gap-6 justify-center items-center'>
-            <h2 className='text-[18px] text-center font-semibold md:text-[28px]'>Productos más vendidos</h2>
+          <section id='masvendidos' className='flex flex-col w-full my-6 px-2 md:px-4 gap-6 justify-center items-center'>
+            <div className='flex flex-col justify-center items-center gap-4'>
+              <h2 className='text-[18px] text-center font-semibold md:text-[28px]'>Productos más vendidos</h2>
+                <div className='grid grid-cols-2 gap-3 md:grid-cols-4 lg:gap-5'>
+                  <Productcard></Productcard>
+                  <Productcard></Productcard>
+                  <Productcard></Productcard>
+                  <Productcard></Productcard>
+                  <Productcard></Productcard>
+                  <Productcard></Productcard>
+                  <Productcard></Productcard>
+                  <Productcard></Productcard>
+                </div>
+            </div>
             <button type='button' className='w-[191px] h-[41px] bg-[#0495A8] border-[#014D64] border-2 rounded-full transition ease-in duration-150 lg:w-[333px] lg:h-[70px] lg:hover:bg-[#014D64]'>
-              <Link href='/tienda' className='font-semibold text-white text-[14px] lg:text-[30px]'>Visitar toda la tienda</Link>
+              <Link href='/tienda/brotes-microgreens' className='font-semibold text-white text-[14px] lg:text-[30px]'>Visitar toda la tienda</Link>
             </button>
-          </div>
+          </section>
         </div>
       </div>
     </Layout>
