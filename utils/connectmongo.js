@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
 
-const connectMongo = async () => mongoose.connect('mongodb+srv://person:pozolomio@clustertest2.hazpdn5.mongodb.net/test')
+const connectMongo = async () => mongoose.connect()
 
 export default connectMongo
