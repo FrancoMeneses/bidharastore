@@ -21,14 +21,6 @@ export default function BrotesMicrogreens(){
           <button type='button' className='w-auto h-auto py-1 px-[6px] rounded-2xl border-[3px] border-[#0495A8] font-text text-[16px] transition-all ease-in-out duration-200 hover:border-[#00243E]'>Ordenar por...</button>
         </div>
       <div className='grid grid-cols-2 gap-3 md:grid-cols-4 lg:gap-5'>
-        <Productcard></Productcard>
-        <Productcard></Productcard>
-        <Productcard></Productcard>
-        <Productcard></Productcard>
-        <Productcard></Productcard>
-        <Productcard></Productcard>
-        <Productcard></Productcard>
-        <Productcard></Productcard>
       </div>
       </section>
     </div>
