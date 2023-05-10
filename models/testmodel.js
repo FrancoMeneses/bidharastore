@@ -16,12 +16,39 @@ const testNewSchema = new Schema({
     required: true,
     trim: true
   },
-  presentations: [String],
+  presentations: [
+    {
+      name: String,
+      price: Number
+    }
+  ],
   image: {
     url: String
   }
 })
 
-const Test2 = models.Test2 || model('Test2', testNewSchema, 'TestBidhara')
+// const testNewSchema = new Schema({
+//   name: {
+//     type: String,
+//     required: true,
+//     trim: true
+//   },
+//   description: {
+//     type: String,
+//     required: true,
+//     trim: true
+//   },
+//   category: { 
+//     type: String,
+//     required: true,
+//     trim: true
+//   },
+//   presentations: [String],
+//   image: {
+//     url: String
+//   }
+// })
 
-export default Test2
+const Test3 = models.Test3 || model('Test3', testNewSchema, 'TestBidhara')
+
+export default Test3
