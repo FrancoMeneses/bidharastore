@@ -3,9 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAlignLeft } from '@fortawesome/free-solid-svg-icons'
 import Link from "next/link"
 import { useRouter } from 'next/router'
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { StoreContext } from "@/context/store"
 
 export default function Navbar(){
+
+  const { cart, handleSidebarCart } = useContext(StoreContext)
 
   const [ open, setOpen ] = useState(true)
   const router = useRouter()
@@ -57,19 +60,19 @@ export default function Navbar(){
             <Link href='/contacto' className={router.pathname == '/contacto' ? 'underline underline-offset-2' : ''}>CONTACTO</Link>
           </li>
         </ul>
-        <div className='flex w-auto h-auto'>
+        <button type="button" className='flex w-auto h-auto' onClick={handleSidebarCart}>
           <Image className='h-auto'
           src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1682472271/Bidhara/Cart_white_fn8kql.svg'
           alt='Carrito'
           width={38}
           height={55} />
           <div className='rounded-full border-[1.5px] border-[#014D64] bg-white w-[28px] h-[28px] self-end flex justify-center items-center'>
-            <p className='text-[#014D64]'>1</p>
+            <p className='text-[#014D64]'>{cart && cart.length}</p>
           </div>
-        </div>
+        </button>
       </div>
       <div className='font-text'>
-        <ul id='movilmenu' className={'absolute w-full flex flex-col gap-2 justify-center items-center text-white bg-[#0495A8] h-[0px] transition-height ease-linear duration-500'}>
+        <ul id='movilmenu' className={'absolute w-full flex flex-col gap-2 justify-center items-center text-white bg-[#0495A8] h-[0px] transition-height ease-linear duration-500 z-50'}>
           <li className='hidden'>
               <Link href='/' className={router.pathname == '/' || router.pathname == '/inicio' ? 'underline underline-offset-2' : ''} >INICIO</Link>
           </li>
