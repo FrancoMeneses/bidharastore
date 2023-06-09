@@ -11,6 +11,19 @@ const testNewSchema = new Schema({
     required: true,
     trim: true
   },
+  bestSeller: {
+    type: Boolean,
+    required: true
+  },
+  stock: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  priority: {
+    type: Number,
+    required: true
+  },
   category: { 
     type: String,
     required: true,
@@ -27,28 +40,6 @@ const testNewSchema = new Schema({
   }
 })
 
-// const testNewSchema = new Schema({
-//   name: {
-//     type: String,
-//     required: true,
-//     trim: true
-//   },
-//   description: {
-//     type: String,
-//     required: true,
-//     trim: true
-//   },
-//   category: { 
-//     type: String,
-//     required: true,
-//     trim: true
-//   },
-//   presentations: [String],
-//   image: {
-//     url: String
-//   }
-// })
+const Test7 = models.Test7 || model('Test7', testNewSchema, 'TestBidhara')
 
-const Test3 = models.Test3 || model('Test3', testNewSchema, 'TestBidhara')
-
-export default Test3
+export default Test7

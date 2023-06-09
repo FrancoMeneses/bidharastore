@@ -1,4 +1,5 @@
 import { createContext, useState } from "react"
+import { useRouter } from "next/router"
 
 // Se crea el contexto
 export const StoreContext = createContext()
@@ -6,7 +7,11 @@ export const StoreContext = createContext()
 // Se crea el proveedor del contexto
 export function StoreProvider({ children }) {
 
+  const router = useRouter()
+
   const [allproducts, setAllproducts] = useState([])
+
+  const [bestSellerProducts, setBestSellerProducts] = useState([])
   
   const [cart, setCart] = useState([])
 
@@ -19,6 +24,10 @@ export function StoreProvider({ children }) {
   const [currentPresentations, setCurrentPresentations] = useState([])
 
   const [openSidebar, setOpenSidebar] = useState(false)
+
+  const [hasStock, setHasStock] = useState(false)
+
+  const [hasCatEscuela, setHasCatEscuela] = useState(false)
 
   const [form, setForm] = useState({
     nombre: '',
@@ -50,9 +59,11 @@ export function StoreProvider({ children }) {
     })
     setCurrentPresentations(product[0].presentations)
     setCurrentProduct({
+      idFind: product[0]._id,
       id: product[0]._id + '/' + product[0].presentations[0].name,
       name: product[0].name,
       category: product[0].category,
+      stock: product[0].stock,
       image: product[0].image.url,
       presentation: product[0].presentations[0],
       quantity: 1
@@ -152,11 +163,9 @@ export function StoreProvider({ children }) {
 
   const handlePresentation = (e) => {
     const productId = currentProduct.id.split("/")
-    console.log(productId)
     const newP = currentPresentations.filter(presentation => {
       return presentation.name === e.target.id
     })
-    console.log(newP)
     setCurrentProduct({
       ...currentProduct,
       id: productId[0] + '/' + e.target.id,
@@ -201,15 +210,16 @@ export function StoreProvider({ children }) {
   }
 
   const handleEditForm = (e) => {
+    let ws = e.target.value.trim()
     let element = e.target.id.split('-')[0]
     setForm({
       ...form,
       [e.target.name] : e.target.value
     })
-    if(e.target.name === 'lugarestablecido'){
+    if(e.target.name === 'lugar' || e.target.name === 'tipo'){
       return
     }else{
-      if(e.target.value === ''){
+      if(e.target.value === '' || ws.length === 0){
         document.getElementById(`${element}-p`).classList.remove('hidden')
       }else{
         document.getElementById(`${element}-p`).classList.add('hidden')
@@ -221,16 +231,93 @@ export function StoreProvider({ children }) {
     e.preventDefault()
     let empty = false
     for (let field in form){
-      if(field === 'lugar') continue
-      if(form[field] !== "lugar" && form[field] === ""){
-        document.getElementById(`${field}-p`).classList.remove('hidden')
-        empty = true
+      if(field === 'lugar' || field === 'tipo') continue
+      if(form[field] !== 'lugar' || form[field] !== 'tipo'){
+        if(form[field] === ''){
+          document.getElementById(`${field}-p`).classList.remove('hidden')
+          empty = true
+        }
       }
     }
-    if(empty){
-      console.log('Hay uno vacio')
-    }else{
-      console.log('Todos llenos')
+    if(!empty){
+      const newLine = '%0a'
+      const space = '%20'
+      let message = 
+      `*Bienvenido/a${space}a${space}Bidhara*${newLine}${newLine}*Información${space}de${space}contacto*${newLine}`
+      for (let field in form){
+        let trim = form[field].trim()
+        if(field === 'cp'){
+          trim = trim.slice(0,5)
+        }
+        let encoded = trim.replaceAll(' ','%20')
+        let fieldMessage = ''
+        switch(field){
+          case 'nombre':
+            fieldMessage = `*Cliente:*${space}${encoded}`
+            message = message + fieldMessage
+            break
+          case 'lugar':
+            if(form[field] !== ''){
+              fieldMessage = `${newLine}*Lugar${space}establecido:*${space}${encoded}`
+              message = message + fieldMessage
+            }
+            break
+          case 'callenum':
+            fieldMessage = `${newLine}*Calle${space}y${space}número:*${space}${encoded}`
+            message = message + fieldMessage
+            break
+          case 'colonia':
+            fieldMessage = `${newLine}*Colonia:*${space}${encoded}`
+            message = message + fieldMessage
+            break
+          case 'tipo':
+            if(form[field] !== ''){
+              fieldMessage = `${newLine}*Tipo${space}de${space}establecimiento:*${space}${encoded}`
+              message = message + fieldMessage
+            }
+            break
+          case 'cp':
+          fieldMessage = `${newLine}*Código${space}postal:*${space}${encoded}`
+          message = message + fieldMessage
+          break
+        }
+      }
+      message = message + `${newLine}${newLine}*Resumen${space}de${space}pedido*${newLine}${newLine}*Variedades${space}(${cart.length})*${newLine}*Total${space}de${space}productos${space}(${productCounter})*${newLine}`
+      cart.forEach((product, index) => {
+        for (let field in product){
+          let encoded = ''
+          let fieldMessage = ''
+          switch(field){
+            case 'name':
+              encoded = product.name.replaceAll(' ','%20')
+              fieldMessage = `${newLine}*Producto:*${space}${encoded}`
+              message = message + fieldMessage
+              break
+            case 'category':
+              encoded = product.category.replaceAll(' ','%20')
+              fieldMessage = `${newLine}*Categoría:*${space}${encoded}`
+              message = message + fieldMessage
+              break
+            case 'presentation':
+              encoded = product.presentation.name.replaceAll(' ','%20')
+              fieldMessage = `${newLine}*Presentación:*${space}${encoded}`
+              message = message + fieldMessage
+              break
+            case 'quantity':
+              encoded = product.quantity.toString()
+              const subtotal = product.quantity * product.presentation.price
+              fieldMessage = `${newLine}*Cantidad:*${space}${encoded}${newLine}*Subtotal:* $${subtotal}${newLine}`
+              message = message + fieldMessage
+              break
+          }
+        }
+      })
+      const shipment = count >= 100 ? `GRATIS` : `$35`
+      const total = count >= 100 ? count : (count + 35)
+      message = message + `${newLine}*Envío:* ${shipment}${newLine}*Total:* $${total}`
+      window.open(`https://wa.me/2212345135?text=${message}`,)
+      // window.open(`https://wa.me/2212007272?text=${message}`,)
+      router.push(`/tienda/gracias`)
     }
   }
 
@@ -244,7 +331,8 @@ export function StoreProvider({ children }) {
       return
     }
     if(e.target.name !== 'lugarContacto' && e.target.type !== 'checkbox'){
-      if(e.target.value === ''){
+      let ws = e.target.value.trim()
+      if(e.target.value === ''  || ws.length === 0){
         document.getElementById(`${element}-p`).classList.remove('hidden')
       }else{
         document.getElementById(`${element}-p`).classList.add('hidden')
@@ -258,7 +346,6 @@ export function StoreProvider({ children }) {
           count++
         }
       })
-      console.log(count)
       if(count === 4){
         document.getElementById(`interesadoenContacto-p`).classList.remove('hidden')
       }else{
@@ -292,7 +379,6 @@ export function StoreProvider({ children }) {
 
   const handleSubmitContactForm = (e) => {
     e.preventDefault()
-    console.log(contactForm)
     let empty = false
     for (let field in contactForm){
       if(field === 'lugarContacto') continue
@@ -301,10 +387,93 @@ export function StoreProvider({ children }) {
         empty = true
       }
     }
-    if(empty){
-      console.log('Hay uno vacio')
-    }else{
-      console.log('Todos llenos')
+    if(!empty){
+      const newLine = '%0a'
+      const space = '%20'
+      let message = ''
+      for (let field in contactForm){
+        let encoded = ''
+        let fieldMessage = ''
+        let trim = ''
+        switch(field){
+          case 'nombreContacto':
+            trim = contactForm[field].trim()
+            encoded = trim.replaceAll(' ','%20')
+            fieldMessage = `Mi${space}nombre${space}es${space}*${encoded}*,${space}`
+            message = message + fieldMessage
+            break
+          case 'lugarContacto':
+            trim = contactForm[field].trim()
+            encoded = trim.replaceAll(' ','%20')
+            if(contactForm[field] !== '' && trim.length !== 0){
+              fieldMessage = `me${space}comunico${space}por${space}parte${space}de${space}*${encoded}*,${space}`
+              message = message + fieldMessage
+            }
+            break
+          case 'comunicoContacto':
+            encoded = contactForm[field].replaceAll(' ','%20')
+            if(contactForm[field] !== 'Otro'){
+              fieldMessage = `soy${space}un${space}*${encoded}*,${space}`
+              message = message + fieldMessage
+            }
+            break
+          case 'interesadoenContacto':
+              let prods = ''
+              contactForm.interesadoenContacto.forEach((cat, index) => {
+                if(cat !== ''){
+                  let catEncoded = cat.replaceAll(' ','%20')
+                  if(index === (contactForm.interesadoenContacto.length - 1) && index === 0){
+                    prods = prods + `${catEncoded}`
+                  }
+                  if(contactForm.interesadoenContacto.length !== 1 && index === 0){
+                    prods = prods + `${catEncoded}`
+                  }
+                  if(index === (contactForm.interesadoenContacto.length - 1) && index !== 0){
+                    prods = prods + `${space}y${space}${catEncoded}`
+                  }
+                  if(index !== (contactForm.interesadoenContacto.length - 1) && index !== 0){
+                    prods = prods + `,${space}${catEncoded}`
+                  }
+                }
+              })
+              fieldMessage = `estoy${space}interesado${space}en${space}*${prods}*.`
+              message = message + fieldMessage
+            break
+          case 'asuntoContacto':
+            encoded = contactForm[field].replaceAll(' ','%20')
+            if(contactForm[field] === 'Envío a otra ciudad o estado'){
+              fieldMessage = `${space}quisiera${space}información${space}acerca${space}del${space}*${encoded}*,${space}`
+              message = message + fieldMessage
+            }
+            if(contactForm[field] === 'Quiero ser cliente mayorista'){
+              fieldMessage = `${space}quisiera${space}información${space}acerca${space}de${space}la${space}opción${space}*${encoded}*,${space}`
+              message = message + fieldMessage
+            }
+        }
+      }
+      window.open(`https://wa.me/2212345135?text=${message}`,)
+      // window.open(`https://wa.me/2212007272?text=${message}`,)
+    }
+  }
+
+  const handleThanks = e => {
+    e.preventDefault()
+    if(e.target.id === 'tks-save'){
+      router.push('/tienda/brotes-microgreens')
+    }
+    if(e.target.id === 'tks-delete'){
+      setCart([])
+      setCount(0)
+      setProductCounter(0)
+      setForm({
+        nombre: '',
+        lugar: '',
+        callenum: '',
+        colonia: '',
+        tipo: '',
+        cp: ''
+      })
+      router.push('/')
     }
   }
 
@@ -326,6 +495,8 @@ export function StoreProvider({ children }) {
       hideModal,
       allproducts,
       setAllproducts,
+      bestSellerProducts,
+      setBestSellerProducts,
       currentProduct,
       setCurrentProduct,
       handleQuantity,
@@ -340,7 +511,12 @@ export function StoreProvider({ children }) {
       contactForm,
       setContactForm,
       handleEditContactForm,
-      handleSubmitContactForm
+      handleSubmitContactForm,
+      handleThanks,
+      hasStock,
+      setHasStock,
+      hasCatEscuela,
+      setHasCatEscuela
     }
       }>
         {children}

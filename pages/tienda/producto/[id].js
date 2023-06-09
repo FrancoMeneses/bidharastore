@@ -6,11 +6,32 @@ import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { StoreContext } from '@/context/store'
 import { useRouter } from 'next/router'
 
 export default function Singleproductpage({ product }) {
+
+  const titlePage = `${product.name} | ${product.category} | Bidhara México`
+  const descPage = `Venta de ${product.category}, somos proveedores para tus eventos importantes, platillos únicos, cocina experimental o mixología.`
+  let imgUrl = ''
+  const urlPage = `https://bidharamexico/tienda/producto/${product._id}`
+  switch(product.category){
+    case 'Brotes - Microgreens':
+      imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686244076/Bidhara/products/shared/BrotesComestibles.png'
+      break
+    case 'Flores comestibles':
+      imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686244077/Bidhara/products/shared/FloresComestibles.png'
+      break
+    case 'Hojas baby':
+      imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686244077/Bidhara/products/shared/Hojas_Baby.png'
+      break
+    case 'Microvegetales':
+      imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686244076/Bidhara/products/shared/Microvegetales.png'
+      break
+      default:
+        imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686257680/Bidhara/products/shared/General.png'
+  }
 
   const router = useRouter()
 
@@ -22,6 +43,8 @@ export default function Singleproductpage({ product }) {
       id: product._id + '/' + product.presentations[0].name,
       name: product.name,
       image: product.image.url,
+      category: product.category,
+      stock: product.stock,
       presentation: product.presentations[0],
       quantity: 1
     })
@@ -58,22 +81,31 @@ export default function Singleproductpage({ product }) {
   }
 
   return (
-    <Layout>
+    <Layout title={titlePage} description={descPage} url={urlPage} image={imgUrl}>
       <Navbartienda></Navbartienda>
       <div className='w-full px-2 my-3 flex flex-col font-text gap-5 md:px-[50px] justify-center items-center'>
         <div className='border border-[#0495A8] rounded-lg px-4 py-2 gap-3 flex flex-col w-full justify-center items-center md:flex-row md:justify-center md:gap-[60px] md:px-[20px] max-w-4xl'>
           <div className='md:flex md:w-[50%] justify-center items-center'>
             <Image id={product._id} className='w-[150px] md:w-[250px] h-fit object-contain aspect-square'
               src={product.image.url}
-              alt={`Foto de ${product.name}`}
+              alt={`Foto del producto ${product.name} de la categoría ${product.category}`}
               width={600}
               height={300} />
           </div>
           <div className='md:flex-col md:w-[50%] justify-center items-center'>
             <div className='w-full flex flex-col justify-start'>
               <p className='font-semibold text-[#014D64] text-[22px]'>{product.name.toUpperCase()}</p>
-              <p className='font-light text-[#00243E] text-[20px]'>{product.category.toUpperCase()}</p>
+              {product.category !== 'Escuelas' ? 
+                <p className='font-light text-[#00243E] text-[20px]'>{product.category.toUpperCase()}</p>
+                :
+                ''
+              }
               <p className='font-light text-[#014D64] text-justify mt-2'>{product.description}</p>
+              {product.category === 'Escuelas' ? 
+                <p className='font-medium text-[#014D64] text-justify mt-2'>{`*Precio de entrega sin costo válido solo para entregas en escuelas de gastronomía.`}</p>
+                :
+                ''
+              }
             </div>
             <div className='flex flex-col w-full gap-2'>
               <p className='text-[22px] text-[#014D64] font-semibold'>Presentaciones</p>
@@ -89,7 +121,7 @@ export default function Singleproductpage({ product }) {
             </div>
             <div className='flex flex-col w-full gap-2'>
               <p className='text-[22px] text-[#014D64] font-semibold'>Disponibilidad</p>
-              <p className='text-[20px] text-[#014D64] font-light'>Disponible</p>
+              <p className='text-[20px] text-[#014D64] font-light'>{product.stock}</p>
             </div>
             <div className='flex flex-col w-full gap-2'>
               <p className='text-[22px] text-[#014D64] font-semibold'>Entrega estimada</p>
@@ -145,7 +177,7 @@ export async function getStaticPaths() {
   const res = JSON.parse(JSON.stringify(response))
   const ids = res.map(element => {
     const obj = {
-      params: { id: element.name.toLowerCase() }
+      params: { id: element._id }
     }
     return obj
   })
@@ -159,8 +191,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   await connectMongo()
   const { id } = params
-  const name = id.charAt(0).toUpperCase() + id.slice(1)
-  const response = await Test2.findOne({ name: name })
+  const response = await Test2.findOne({ _id: id })
 
   return {
     props: {

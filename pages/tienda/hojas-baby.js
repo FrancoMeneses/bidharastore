@@ -6,87 +6,77 @@ import Productcard from "@/components/productcard"
 import { useContext, useEffect, useState } from "react"
 import { StoreContext } from "@/context/store"
 
-export default function BrotesMicrogreens({products}){
+export default function BrotesMicrogreens({ products }) {
 
-  const {allproducts, setAllproducts} = useContext(StoreContext)
+  const titlePage = 'Proveedor de Hojas Baby | Bidhara'
+  const descPage = 'Venta de Hojas Baby, somos proveedores para tus eventos importantes, platillos únicos, cocina experimental o mixología.'
+  const imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686244077/Bidhara/products/shared/Hojas_Baby.png'
+  const urlPage = 'https://bidharamexico/tienda/hojas-baby'
+
+  const { setAllproducts, setOpenSidebar } = useContext(StoreContext)
 
   const [pageProducts, setPageProducts] = useState([])
 
   useEffect(() => {
-    setAllproducts(products)
-    if(allproducts.length !== 0)
-    setPageProducts(allproducts.filter(product => {
-      return product.category === 'Hojas baby'
-    }))
-  },[products, setAllproducts, allproducts])
+    setOpenSidebar(false)
+    const sorted = products.toSorted(function(a, b){return a.priority-b.priority})
+    setAllproducts(sorted)
 
-  const [openSort, setOpenSort] = useState(false)
+    if (sorted.length !== 0)
+      setPageProducts(sorted.filter(product => {
+        return product.category === 'Hojas baby' || product.category === 'Escuelas'
+      }))
+  }, [products])
 
+  function toggleText() {
+    var dots = document.getElementById("dots")
+    var moreText = document.getElementById("more")
+    var button = document.getElementById("button")
 
-  const btnsort = () => {
-    setOpenSort(!openSort)
-    if(openSort){
-      const btn1 = document.getElementById('btnSort')
-      const btn2 = document.getElementById('btnSA')
-      const btn3 = document.getElementById('tnSZ')
+    if (dots.classList.contains("hidden")) {
+      // Show the dots
+      dots.classList.remove("hidden")
 
+      // Hide the more text
+      moreText.classList.add("hidden")
+
+      // change text of the button
+      button.innerHTML = "Ver más"
+    } else {
+      // Hide the dots
+      dots.classList.add("hidden")
+
+      // hide the more text
+      moreText.classList.remove("hidden")
+
+      // change text of the button
+      button.innerHTML = "Ver menos"
     }
   }
 
-  const sortAZ = () => {
-    const productsSort = pageProducts.sort(function (a, b) {
-      if (a.name < b.name) {
-        return -1
-      }
-      if (a.name > b.name) {
-        return 1
-      }
-      return 0
-    })
-    pageProducts(productsSort)
-    setOpenSort(!openSort)
-  }
-
-  const sortZA = () => {
-    const productsSort = pageProducts.sort(function (a, b) {
-      if (a.name > b.name) {
-        return -1
-      }
-      if (a.name < b.name) {
-        return 1
-      }
-      return 0
-    })
-    pageProducts(productsSort)
-    setOpenSort(!openSort)
-  }
-
-  return(
-    <Layout>
-    <Navbartienda></Navbartienda>
-    <div className='flex w-full flex-col gap-4 my-6 px-2 md:px-3 lg:px-10'>
-      <section id='descripcion' className='flex flex-col justify-center items-center gap-4 w-full'>
-        <h1 className='font-text font-semibold text-[20px] lg:text-[22px] text-center w-full'>Hojas Baby</h1>
-        <p className='font-text text-justify text-[16px] md:text-[18px] lg:text-[20px]'>
-          {`Las hojas "baby" también son utilizadas por los chefs en la alta cocina y en la gastronomía molecular debido a su aspecto atractivo y su versatilidad en la creación de platos sofisticados.`}
-        </p>
-      </section>
-      <section id='productos' className='flex flex-col w-full h-auto justify-center items-center gap-4 pt-6'>
-          <div className='w-full flex justify-between items-center px-2'>
-          {pageProducts && <p className='font-text text-[16px] md:text-[18px] lg:text-[20px]'>{`(Total ${pageProducts.length} productos)`}</p>}
-            <div className="w-auto min-h-fit relative">
-                <button type='button' id='btnSort' className='py-1 px-[6px] rounded-2xl border-[3px] border-[#0495A8] font-text text-[16px] transition-all ease-in-out duration-200 hover:border-[#00243E] focus:rounded-t-2xl' onClick={() => btnsort()}>
-                  Ordenar por...
-                </button>
-                <ul className={openSort ? 'absolute left-0 top-8' : 'hidden'}>
-                  <li>
-                    <button type="button" id='btnSA' className='bg-white py-1 px-[6px] rounded-2xl border-r-[3px] border-l-[3px] border-[#0495A8] font-text text-[16px] transition-all ease-in-out duration-200 hover:border-[#00243E]' onClick={sortAZ}>A-Z</button>
-                  </li>
-                  <li>
-                    <button type="button" id='btnSZ' className='bg-white py-1 px-[6px] rounded-2xl border-r-[3px] border-l-[3px] border-[#0495A8] font-text text-[16px] transition-all ease-in-out duration-200 hover:border-[#00243E]' onClick={sortZA}>Z-A</button>
-                  </li>
-                </ul>
-            </div>
+  return (
+    <Layout title={titlePage} description={descPage} url={urlPage} image={imgUrl}>
+      <Navbartienda></Navbartienda>
+      <div className='flex w-full flex-col gap-4 items-center min-h-screen'>
+        <section id='descripcion' className="md:min-h-[250px] flex flex-col justify-center items-center gap-4 w-full h-auto bg-fixed bg-center bg-no-repeat text-white font-semibold bg-cover" style={{ backgroundImage: 'url(https://res.cloudinary.com/dfnqqumsc/image/upload/v1685328236/Bidhara/products/test/IMG_20230125_170021.jpg)' }}>
+          <div className='flex flex-col justify-center items-center backdrop-blur-[1.5px] md:min-h-[250px] lg:backdrop-blur-[2.5px] py-2 px-2 md:px-3 lg:px-10'>
+            <h1 className='font-text font-semibold text-[22px] lg:text-[22px] text-center w-full'>Hojas Baby</h1>
+            <p className='font-text text-justify lg:self-start text-[14px] md:text-[18px] lg:text-[20px]'>
+              Estas hojas jóvenes y tiernas son visualmente atractivas y pueden añadir un toque de color y textura a cualquier plato.<span id='dots' className='md:hidden'>..</span>
+            </p>
+            <p id='more' className='hidden md:block font-text text-justify text-[14px] md:text-[18px] lg:text-[20px]'>
+              Los chefs creativos y experimentales utilizan las hojas baby de diferentes maneras en la alta cocina, desde ensaladas hasta platos principales y guarniciones.
+              Estas hojas pueden ser combinadas con otros ingredientes para crear sabores y texturas complejas, o pueden ser utilizadas solas para realzar el sabor natural de los ingredientes.
+            </p>
+            <button onClick={toggleText} id='button'
+              className='font-text px-5 py-2 my-2 rounded-3xl bg-[#0495A8] text-white duration-300 md:hidden'>
+              Ver más
+            </button>
+          </div>
+        </section>
+        <section id='productos' className='flex flex-col w-full h-auto justify-center items-center gap-4 pt-6 max-w-6xl mb-6'>
+          <div className='w-full flex justify-start items-center px-2'>
+            {pageProducts && <p className='font-text text-[16px] md:text-[18px] lg:text-[20px]'>{`(Total ${pageProducts.length} productos)`}</p>}
           </div>
           <ul className='grid grid-cols-2 gap-3 md:grid-cols-4 lg:gap-5'>
             {pageProducts && pageProducts.map(product => {
@@ -96,8 +86,8 @@ export default function BrotesMicrogreens({products}){
             })}
           </ul>
         </section>
-    </div>
-  </Layout>
+      </div>
+    </Layout>
   )
 }
 
