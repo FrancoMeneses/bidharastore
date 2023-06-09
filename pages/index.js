@@ -1,4 +1,4 @@
-import connectMongo from 'utils/connectMongo'
+import connectMongo from '@/utils/connectmongo'
 import Test3 from '@/models/testmodel'
 import Layout from "@/components/layout"
 import Image from "next/image"
@@ -13,19 +13,17 @@ import IndexCarousel from '@/components/carousel'
 
 export default function Home({ products }) {
 
-  const { allproducts, setAllproducts, bestSellerProducts, setBestSellerProducts } = useContext(StoreContext)
+  const { setAllproducts, bestSellerProducts, setBestSellerProducts } = useContext(StoreContext)
 
   useEffect(() => {
-    setAllproducts(products)
-    if (allproducts.length !== 0)
-      setBestSellerProducts(allproducts.filter(product => {
+    const sorted = products.toSorted(function(a, b){return a.priority-b.priority})
+    setAllproducts(sorted)
+
+    if (sorted.length !== 0)
+      setBestSellerProducts(sorted.filter(product => {
         return product.bestSeller === true
       }))
-    if(bestSellerProducts.length !== 0){
-      const sorted = bestSellerProducts.toSorted(function(a, b){return a.priority-b.priority})
-      setBestSellerProducts(sorted)
-    }
-  }, [products, setAllproducts, allproducts])
+  }, [products])
 
   const titlePage = 'Proveedor de Flores comestibles | Microgreens Brotes en Puebla'
   const descPage = 'Venta de Flores comestibles, Brotes o Microgreens, Hojas baby y Microvegetales para tus mejores platillos, cocina experimental o mixología.'

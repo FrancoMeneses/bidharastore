@@ -1,4 +1,4 @@
-import connectMongo from 'utils/connectMongo'
+import connectMongo from '@/utils/connectmongo'
 import Test2 from '@/models/testmodel'
 import Layout from "@/components/layout"
 import Navbartienda from "@/components/navbartienda"
