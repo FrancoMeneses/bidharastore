@@ -15,7 +15,7 @@ export default function Singleproductpage({ product }) {
   const titlePage = `${product.name} | ${product.category} | Bidhara México`
   const descPage = `Venta de ${product.category}, somos proveedores para tus eventos importantes, platillos únicos, cocina experimental o mixología.`
   let imgUrl = ''
-  const urlPage = `https://bidharamexico/tienda/producto/${product._id}`
+  const urlPage = `https://bidharamexico.com/tienda/producto/${product._id}`
   switch(product.category){
     case 'Brotes - Microgreens':
       imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686244076/Bidhara/products/shared/BrotesComestibles.png'

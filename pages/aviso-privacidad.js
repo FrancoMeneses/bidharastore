@@ -5,7 +5,7 @@ export default function AvisoPrivacidad(){
   const titlePage = `Aviso de privacidad | Bidhara`
   const descPage = ``
   const imgUrl = ''
-  const urlPage = `https://bidharamexico/aviso-privacidad`
+  const urlPage = `https://bidharamexico.com/aviso-privacidad`
 
   return(
     <Layout title={titlePage} url={urlPage}>

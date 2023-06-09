@@ -9,7 +9,7 @@ export default function Contacto() {
   const titlePage = 'Contacto | Bidhara'
   const descPage = 'Contáctanos para obtener información acerca de ser mayorista, envíos personalizados o atención personalizada.'
   const imgUrl = ''
-  const urlPage = 'https://bidharamexico/contacto'
+  const urlPage = 'https://bidharamexico.com/contacto'
 
   const { handleEditContactForm, handleSubmitContactForm, contactForm } = useContext(StoreContext)
 

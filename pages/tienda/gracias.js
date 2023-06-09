@@ -8,7 +8,7 @@ export default function ThankYou() {
   const titlePage = `Gracias | Bidhara`
   const descPage = ``
   const imgUrl = ''
-  const urlPage = `https://bidharamexico/tienda/gracias`
+  const urlPage = `https://bidharamexico.com/tienda/gracias`
 
   const { handleThanks, cart } = useContext(StoreContext)
   const router = useRouter()

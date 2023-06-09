@@ -11,7 +11,7 @@ export default function BrotesMicrogreens({ products }) {
   const titlePage = 'Proveedor de Hojas Baby | Bidhara'
   const descPage = 'Venta de Hojas Baby, somos proveedores para tus eventos importantes, platillos únicos, cocina experimental o mixología.'
   const imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686244077/Bidhara/products/shared/Hojas_Baby.png'
-  const urlPage = 'https://bidharamexico/tienda/hojas-baby'
+  const urlPage = 'https://bidharamexico.com/tienda/hojas-baby'
 
   const { setAllproducts, setOpenSidebar } = useContext(StoreContext)
 

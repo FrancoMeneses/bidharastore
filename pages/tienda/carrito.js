@@ -10,7 +10,7 @@ export default function Carrito() {
   const titlePage = `Carrito | Bidhara`
   const descPage = ``
   const imgUrl = ''
-  const urlPage = `https://bidharamexico/tienda/carrito`
+  const urlPage = `https://bidharamexico.com/tienda/carrito`
 
   const { cart, handleProductCart, productCounter, setProductCounter, setOpenSidebar, count, hasStock, hasCatEscuela } = useContext(StoreContext)
 

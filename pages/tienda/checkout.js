@@ -12,7 +12,7 @@ export default function Checkout() {
   const titlePage = `Checkout | Bidhara`
   const descPage = ``
   const imgUrl = ''
-  const urlPage = `https://bidharamexico/tienda/checkout`
+  const urlPage = `https://bidharamexico.com/tienda/checkout`
 
   const { cart, productCounter, setProductCounter, setOpenSidebar, form, handleEditForm, handleSubmitForm, count, hasStock, hasCatEscuela } = useContext(StoreContext)
   const router = useRouter()

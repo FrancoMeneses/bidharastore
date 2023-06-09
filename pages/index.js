@@ -30,7 +30,7 @@ export default function Home({ products }) {
   const titlePage = 'Proveedor de Flores comestibles | Microgreens Brotes en Puebla'
   const descPage = 'Venta de Flores comestibles, Brotes o Microgreens, Hojas baby y Microvegetales para tus mejores platillos, cocina experimental o mixología.'
   const imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686257680/Bidhara/products/shared/General.png'
-  const urlPage = 'https://bidharamexico/'
+  const urlPage = 'https://bidharamexico.com/'
 
   return (
     <>

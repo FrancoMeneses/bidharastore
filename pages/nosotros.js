@@ -6,7 +6,7 @@ export default function Nosotros() {
   const titlePage = '¿Quiénes somos? | Bidhara'
   const descPage = 'Conoce acerca de nosotros, el proceso de preparación de nuestros productos hasta su distribución y entrega.'
   const imgUrl = ''
-  const urlPage = 'https://bidharamexico/nosotros'
+  const urlPage = 'https://bidharamexico.com/nosotros'
 
   return (
     <Layout title={titlePage} description={descPage} url={urlPage}>
