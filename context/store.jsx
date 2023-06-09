@@ -315,8 +315,8 @@ export function StoreProvider({ children }) {
       const shipment = count >= 100 ? `GRATIS` : `$35`
       const total = count >= 100 ? count : (count + 35)
       message = message + `${newLine}*Envío:* ${shipment}${newLine}*Total:* $${total}`
-      window.open(`https://wa.me/2212345135?text=${message}`,)
-      // window.open(`https://wa.me/2212007272?text=${message}`,)
+      // window.open(`https://wa.me/2212345135?text=${message}`,)
+      window.open(`https://wa.me/2212007272?text=${message}`,)
       router.push(`/tienda/gracias`)
     }
   }
@@ -451,8 +451,8 @@ export function StoreProvider({ children }) {
             }
         }
       }
-      window.open(`https://wa.me/2212345135?text=${message}`,)
-      // window.open(`https://wa.me/2212007272?text=${message}`,)
+      // window.open(`https://wa.me/2212345135?text=${message}`,)
+      window.open(`https://wa.me/2212007272?text=${message}`,)
     }
   }
 
