@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { FaWhatsapp } from "react-icons/fa"
 
 export default function WhatsApp(){
   return(
@@ -7,8 +6,9 @@ export default function WhatsApp(){
       <div className="bg-white w-40 rounded-md hidden group-hover/whatsapp:md:block absolute bottom-[65px] right-[-10px] border-2">
         <p className="m-0 p-2 text-xs">¡Haz click para obtener información! 😃</p>
       </div>
-      <a href="https://wa.me/2212345135?text=¡Hola!%20Me%20gustaría%20más%20información" className="cursor-pointer" target='_blank'>
-      <FontAwesomeIcon icon={faWhatsapp} className='w-8 h-8 md:w-10 md:h-10 text-[#25d366]' />
+      <a href="https://wa.me/2212007272?text=¡Hola!%20Me%20gustaría%20más%20información" className="cursor-pointer" target='_blank'>
+      {/* <a href="https://wa.me/2212345135?text=¡Hola!%20Me%20gustaría%20más%20información" className="cursor-pointer" target='_blank'> */}
+      <FaWhatsapp className='w-8 h-8 md:w-10 md:h-10 text-[#25d366]' />
       </a>
     </div>
   )

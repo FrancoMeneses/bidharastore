@@ -11,7 +11,7 @@ export default function Nosotros() {
   return (
     <Layout title={titlePage} description={descPage} url={urlPage}>
       <div className="w-full h-full flex flex-col font-text justify-center items-center">
-        <section id='quienessomos' className="flex flex-col justify-center items-center w-full gap-4 lg:min-h-[400px] bg-fixed bg-center bg-no-repeat text-white font-semibold bg-auto" style={{ backgroundImage: 'url(https://res.cloudinary.com/dfnqqumsc/image/upload/v1685327130/Bidhara/products/test/SAM_5582.jpg)'}}>
+        <section id='quienessomos' className="flex flex-col justify-center items-center w-full gap-4 lg:min-h-[400px] bg-fixed bg-center bg-no-repeat text-white font-semibold bg-auto" style={{ backgroundImage: 'url(https://res.cloudinary.com/dfnqqumsc/image/upload/v1686288880/Bidhara/products/top-bgs/nosotros.jpg)'}}>
           <div className="flex flex-col justify-center items-center w-full h-full lg:min-h-[400px] backdrop-blur-[1px] px-2 py-5">
             <h1 className="font-semibold text-[20px]">
               ¿Quiénes somos?
@@ -50,7 +50,7 @@ export default function Nosotros() {
             </div>
             <div className="h-auto w-full my-4 px-3 md:px-6">
               <Image className="h-auto max-h-[400px] w-full lg:h-auto lg:w-full object-cover rounded-3xl"
-              src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1685321144/Bidhara/products/test/IMG_20180925_083302.jpg'
+              src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1686289031/Bidhara/products/test/nuestrosProductos.jpg'
               alt='Foto de nuestros productos'
               width={1600}
               height={1066}
@@ -77,7 +77,7 @@ export default function Nosotros() {
             </div>
             <div className="h-auto w-full my-4 px-3 md:px-6">
               <Image className="h-auto max-h-[400px] w-full lg:h-auto lg:w-full object-cover rounded-3xl"
-              src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1685321084/Bidhara/products/test/IMG_20181115_073041.jpg'
+              src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1686289094/Bidhara/products/test/comoCreamos.jpg'
               alt='Foto de como creamos nuestros productos'
               width={1600}
               height={1066}
@@ -102,7 +102,7 @@ export default function Nosotros() {
             </div>
             <div className="h-auto w-full my-4 px-3 md:px-6">
               <Image className="h-auto max-h-[400px] w-full lg:h-auto lg:w-full object-cover rounded-3xl"
-              src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1685326668/Bidhara/products/test/SAM_5589.jpg'
+              src='https://res.cloudinary.com/dfnqqumsc/image/upload/v1686289159/Bidhara/products/test/comoDistribuimos.jpg'
               alt='Foto de como preparamos y distribuimos tu producto'
               width={1600}
               height={1066}

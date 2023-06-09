@@ -2,9 +2,7 @@ import connectMongo from '@/utils/connectmongo'
 import Test3 from '@/models/testmodel'
 import Layout from "@/components/layout"
 import Image from "next/image"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStore, faShippingFast, faRightLong } from '@fortawesome/free-solid-svg-icons'
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { FaLongArrowAltRight, FaShippingFast, FaStore, FaWhatsapp } from "react-icons/fa"
 import Link from "next/link"
 import Productcard from "@/components/productcard"
 import { useContext, useEffect } from "react"
@@ -16,7 +14,7 @@ export default function Home({ products }) {
   const { setAllproducts, bestSellerProducts, setBestSellerProducts } = useContext(StoreContext)
 
   useEffect(() => {
-    const sorted = products.toSorted(function(a, b){return a.priority-b.priority})
+    const sorted = products.sort(function(a, b){return a.priority-b.priority})
     setAllproducts(sorted)
 
     if (sorted.length !== 0)
@@ -52,23 +50,29 @@ export default function Home({ products }) {
                     Visita la tienda y agrega los productos a tu carrito
                   </p>
                 </div>
-                <FontAwesomeIcon icon={faRightLong} className='text-[39px] text-[#0495A8]' />
+                {/* <FontAwesomeIcon icon={faRightLong} className='text-[39px] text-[#0495A8]' /> */}
+                <FaLongArrowAltRight className='w-[38px] h-[55px] md:w-[76px] md:h-[111px] lg:w-[100px] lg:h-[145px] text-[#0495A8]' />
                 <div className='flex flex-col justify-between items-center gap-1 md:h-[185px] lg:gap-6 lg:h-[230px]'>
-                  <FontAwesomeIcon icon={faWhatsapp} className='text-[39px] md:text-[90px] lg:text-[130px] text-[#0495A8]' />
+                  <FaWhatsapp className='text-[39px] md:text-[90px] lg:text-[130px] text-[#0495A8]' />
+                  {/* <FontAwesomeIcon icon={faWhatsapp} className='text-[39px] md:text-[90px] lg:text-[130px] text-[#0495A8]' /> */}
                   <p className='w-full font-semibold text-[12px] text-center md:text-center md:text-[15px] lg:text-[16px]'>
                     Realiza el pedido en la página y te enviará a nuestro WhatsApp con los detalles de tu pedido
                   </p>
                 </div>
-                <FontAwesomeIcon icon={faRightLong} className='hidden lg:block text-[39px] text-[#0495A8]' />
+                <FaLongArrowAltRight className='hidden lg:block w-[38px] h-[55px] md:w-[76px] md:h-[111px] lg:w-[100px] lg:h-[145px] text-[#0495A8]' />
+                {/* <FontAwesomeIcon icon={faRightLong} className='hidden lg:block text-[39px] text-[#0495A8]' /> */}
                 <div className='flex flex-col justify-between items-center gap-1 lg:gap-6 lg:h-[230px]'>
-                  <FontAwesomeIcon icon={faStore} className='text-[39px] md:text-[90px] lg:text-[114px] text-[#0495A8]' />
+                  <FaStore className='text-[39px] md:text-[90px] lg:text-[114px] text-[#0495A8]' />
+                  {/* <FontAwesomeIcon icon={faStore} className='text-[39px] md:text-[90px] lg:text-[114px] text-[#0495A8]' /> */}
                   <p className='w-full font-semibold text-[12px] text-center md:text-center md:text-[15px] lg:text-[16px]'>
                     Te responderemos para acordar tu pedido y empezaremos a prepararlo
                   </p>
                 </div>
-                <FontAwesomeIcon icon={faRightLong} className='text-[39px] text-[#0495A8]' />
+                <FaLongArrowAltRight className='w-[38px] h-[55px] md:w-[76px] md:h-[111px] lg:w-[100px] lg:h-[145px] text-[#0495A8]' />
+                {/* <FontAwesomeIcon icon={faRightLong} className='text-[39px] text-[#0495A8]' /> */}
                 <div className='flex flex-col justify-between items-center gap-1 lg:gap-6 lg:h-[230px]'>
-                  <FontAwesomeIcon icon={faShippingFast} className='text-[39px] md:text-[90px] lg:text-[114px] text-[#0495A8]' />
+                  <FaShippingFast className='text-[39px] md:text-[90px] lg:text-[114px] text-[#0495A8]' />
+                  {/* <FontAwesomeIcon icon={faShippingFast} className='text-[39px] md:text-[90px] lg:text-[114px] text-[#0495A8]' /> */}
                   <p className='w-full font-semibold text-[12px] text-center md:text-center md:text-[15px] lg:text-[16px]'>
                     Enviaremos tus productos en la fecha y hora acordada
                   </p>

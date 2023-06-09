@@ -1,8 +1,7 @@
 import { StoreContext } from "@/context/store"
 import Image from "next/image"
 import { useContext } from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { FaShoppingCart } from "react-icons/fa"
 
 export default function Productcard({ product }){
 
@@ -34,7 +33,8 @@ export default function Productcard({ product }){
         <div id={product._id} className="w-full md:w-full md:h-auto self-center flex justify-center items-center py-2">
           <p id={product._id} className="group text-center text-[9px] md:text-[10px] lg:text-[14px] text-[#0495A8] md:hover:text-[#014D64] flex justify-center items-center gap-2">
             Agregar al carrito
-            <FontAwesomeIcon id={product._id} icon={faCartShopping} className='text-[18px] text-[#0495A8] group-hover:text-[#014D64] pointer-events-none block' />
+            <FaShoppingCart id={product._id} className='text-[18px] text-[#0495A8] group-hover:text-[#014D64] pointer-events-none block' />
+            {/* <FontAwesomeIcon id={product._id} icon={faCartShopping} className='text-[18px] text-[#0495A8] group-hover:text-[#014D64] pointer-events-none block' /> */}
           </p>
         </div>
       </div>

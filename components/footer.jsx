@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { FaInstagram, FaFacebook } from "react-icons/fa"
 import { useRouter } from "next/router"
 
 export default function Footer() {
@@ -60,10 +59,10 @@ export default function Footer() {
           <h2 className='text-[10px] md:text-[17px] lg:text-[20px] text-white'>¡SÍGUENOS!</h2>
           <div className='flex gap-2'>
           <a href='https://www.instagram.com/bidhara_mexico/' target="_blank" className='transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300'>
-            <FontAwesomeIcon icon={faInstagram} className='md:text-[32px] lg:text-[40px] text-white' />
+            <FaInstagram className='md:text-[32px] lg:text-[40px] text-white' />
           </a>
           <a href='https://www.facebook.com/bidhara1' target="_blank" className='transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300'>
-            <FontAwesomeIcon icon={faFacebook} className='md:text-[32px] lg:text-[40px] text-white' />
+            <FaFacebook className='md:text-[32px] lg:text-[40px] text-white' />
           </a>
           </div>
         </div>

@@ -19,7 +19,7 @@ export default function BrotesMicrogreens({ products }) {
 
   useEffect(() => {
     setOpenSidebar(false)
-    const sorted = products.toSorted(function(a, b){return a.priority-b.priority})
+    const sorted = products.sort(function(a, b){return a.priority-b.priority})
     setAllproducts(sorted)
 
     if (sorted.length !== 0)

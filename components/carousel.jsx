@@ -8,7 +8,7 @@ export default function IndexCarousel() {
 
   const handleSlide = (index, item) => {
     if(index === 2){
-      router.push('/tienda/producto/648157ad1931cc225b24b05a')
+      router.push('/tienda/producto/6482288e93f517160ae9b089')
     }
   }
 
@@ -27,7 +27,9 @@ export default function IndexCarousel() {
             width={1600}
             height={1066}
             alt=""
-            src="https://res.cloudinary.com/dfnqqumsc/image/upload/v1685589926/Bidhara/banners/Grey_3D_Online_Store_Facebook_Cover.png" />
+            src="https://res.cloudinary.com/dfnqqumsc/image/upload/v1685589926/Bidhara/banners/Grey_3D_Online_Store_Facebook_Cover.png"
+            priority
+            />
             {/* <p className="legend">Legend 1</p> */}
         </div>
         <div className="w-full h-[216.5px] md:h-[500px] lg:h-[450px] 2xl:h-[650px]">

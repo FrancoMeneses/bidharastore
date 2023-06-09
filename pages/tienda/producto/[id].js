@@ -3,8 +3,7 @@ import Test2 from '@/models/testmodel'
 import Layout from "@/components/layout"
 import Navbartienda from "@/components/navbartienda"
 import Image from 'next/image'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { FaExternalLinkAlt } from "react-icons/fa"
 import Link from 'next/link'
 import { useContext, useEffect } from 'react'
 import { StoreContext } from '@/context/store'
@@ -126,11 +125,13 @@ export default function Singleproductpage({ product }) {
             <div className='flex flex-col w-full gap-2'>
               <p className='text-[22px] text-[#014D64] font-semibold'>Entrega estimada</p>
               <p className='text-[20px] text-[#014D64] font-light'>1 día hábil dentro de la ciudad de Puebla</p>
-              <p className='text-[20px] text-[#014D64] font-light'>
+              <p className='text-[20px] text-[#014D64] font-medium'>
                 *Si requiere un pedido para otra ciudad visite:
-                <Link href='/contacto' className=" w-fit text-center font-semibold px-2 ml-1 border border-[#014D64] hover:border-2 rounded-lg text-[16px]">
-                  CONTACTO
-                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} className='text-[#0495A8] ml-1' />
+                <Link href='/contacto' className="w-fit h-fit inline-flex justify-center items-center ml-1 md:ml-2 gap-1 font-semibold px-2 border border-[#014D64] hover:border-2 rounded-lg">
+                  <p className="">
+                    CONTACTO
+                  </p>
+                  <FaExternalLinkAlt className='text-[#0495A8] text-[14px] md:text-[16px]' />
                 </Link>
               </p>
             </div>

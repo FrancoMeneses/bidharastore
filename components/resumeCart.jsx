@@ -1,8 +1,7 @@
 import { StoreContext } from "@/context/store"
 import Image from "next/image"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import { useContext, useEffect, useState } from "react"
+import { FaChevronLeft } from "react-icons/fa"
+import { useContext, useEffect } from "react"
 import Link from "next/link"
 
 export default function ResumeCart() {
@@ -29,7 +28,7 @@ export default function ResumeCart() {
       <div className="w-[25%] md:w-[50%] lg:w-[65%] h-full border-black" onClick={handleSidebarCart}></div>
       <div className="flex flex-col h-full bg-white w-[75%] md:w-[50%] lg:w-[35%] font-text relative overflow-auto">
         <button type="button" className="w-full min-h-[70px] bg-[#014D64] text-[20px] flex justify-center items-center gap-3 text-white" onClick={handleSidebarCart}>
-        <FontAwesomeIcon icon={faChevronLeft} className='text-[26px]' />
+          <FaChevronLeft className='text-[26px]' />
         <p className="font-semibold">CERRAR</p>
         </button>
         <div className="w-full py-2 px-2 flex flex-col gap-4 justify-center items-center">

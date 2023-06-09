@@ -1,6 +1,5 @@
 import Layout from "@/components/layout"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { FaChevronDown } from "react-icons/fa"
 import { useContext } from "react"
 import { StoreContext } from "@/context/store"
 
@@ -30,7 +29,7 @@ export default function Contacto() {
                   ¿Necesitas un pedido a otra ciudad o estado?
                 </h2>
                 <div className="h-8 w-8 items-center inline-flex justify-center transform transition ease duration-500 group-focus:text-white group-focus:-rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-2 mr-2">
-                  <FontAwesomeIcon id="1" icon={faChevronDown} className='text-[20px] text-white' />
+                  <FaChevronDown className='text-[20px] text-white' />
                 </div>
               </div>
               <div className="group-focus:max-h-screen max-h-0 bg-[#014D64] px-4 overflow-hidden ease duration-500 flex flex-col justify-center items-center">
@@ -47,7 +46,7 @@ export default function Contacto() {
                   ¿Quieres convertirte en cliente mayorista?
                 </h2>
                 <div className="h-8 w-8 items-center inline-flex justify-center transform transition ease duration-500 group-focus:text-white group-focus:-rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-2 mr-2">
-                  <FontAwesomeIcon id="2" icon={faChevronDown} className='text-[20px] text-white' />
+                  <FaChevronDown className='text-[20px] text-white' />
                 </div>
               </div>
               <div className="group-focus:max-h-screen max-h-0 bg-[#014D64] px-4 overflow-hidden ease duration-500 flex flex-col justify-center items-center">
@@ -65,7 +64,7 @@ export default function Contacto() {
                   ¿Necesitas atención personalizada?
                 </h2>
                 <div className="h-8 w-8 items-center inline-flex justify-center transform transition ease duration-500 group-focus:text-white group-focus:-rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-2 mr-2">
-                  <FontAwesomeIcon id="3" icon={faChevronDown} className='text-[20px] text-white' />
+                  <FaChevronDown className='text-[20px] text-white' />
                 </div>
               </div>
               <div className="group-focus:max-h-screen max-h-0 bg-[#014D64] px-4 overflow-hidden ease duration-500 flex flex-col justify-center items-center">

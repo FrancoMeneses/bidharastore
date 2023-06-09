@@ -4,8 +4,7 @@ import { useContext, useEffect } from "react"
 import { useRouter } from 'next/router'
 import Image from "next/image"
 import Link from "next/link"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { FaExternalLinkAlt } from "react-icons/fa"
 
 export default function Checkout() {
 
@@ -104,9 +103,11 @@ export default function Checkout() {
               : ''}
             <p className="text-justify leading-relaxed">
               *Los envíos <strong className="font-semibold">solo están disponibles en la ciudad de Puebla</strong>, si requieres información para envíos a otra ciudad o estado visita la sección de
-              <Link href='/contacto' className="w-fit text-center font-semibold px-3 py-1 ml-1 md:ml-[10px] border border-[#014D64] hover:border-2 rounded-lg">
-                CONTACTO
-                <FontAwesomeIcon icon={faArrowUpRightFromSquare} className='text-[#0495A8] ml-1' />
+              <Link href='/contacto' className="w-fit h-fit inline-flex justify-center items-center ml-1 md:ml-2 gap-1 font-semibold px-2 border border-[#014D64] hover:border-2 rounded-lg">
+                  <p className="">
+                    CONTACTO
+                  </p>
+                  <FaExternalLinkAlt className='text-[#0495A8] text-[14px] md:text-[16px]' />
               </Link>
             </p>
           </div>

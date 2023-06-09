@@ -1,6 +1,5 @@
 import Image from "next/image"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAlignLeft } from '@fortawesome/free-solid-svg-icons'
+import { FaAlignLeft } from "react-icons/fa"
 import Link from "next/link"
 import { useRouter } from 'next/router'
 import { useContext, useState } from "react"
@@ -37,7 +36,7 @@ export default function Navbar(){
     <nav className="w-full flex flex-col">
       <div className='w-full h-[100px] bg-[#014D64] flex justify-between items-center gap-2 md:px-[60px]'>
         <button type='button' className='md:hidden w-[25%] flex justify-center items-center' onClick={() => setMovilMenu()}>
-          <FontAwesomeIcon icon={faAlignLeft} className='text-[39px] text-white' />
+          <FaAlignLeft className='text-[39px] text-white' />
         </button>
         <Link href='/' className="w-[50%] md:w-auto flex justify-center items-center">
         <Image 
