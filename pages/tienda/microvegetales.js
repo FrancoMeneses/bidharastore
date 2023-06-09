@@ -8,7 +8,7 @@ import { StoreContext } from "@/context/store"
 
 export default function BrotesMicrogreens({ products }) {
 
-  const titlePage = 'Proveedor de Microvegetales | Bidhara'
+  const titlePage = 'Proveedor de Microvegetales | Bidhara México'
   const descPage = 'Venta de Microvegetales, somos proveedores para tus eventos importantes, platillos únicos, cocina experimental o mixología.'
   const imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686244076/Bidhara/products/shared/Microvegetales.png'
   const urlPage = 'https://bidharamexico.com/tienda/microvegetales'
@@ -24,7 +24,7 @@ export default function BrotesMicrogreens({ products }) {
 
     if (sorted.length !== 0)
       setPageProducts(sorted.filter(product => {
-        return product.category === 'Microvegetales' || product.category === 'Escuelas'
+        return product.category === 'Microvegetales'
       }))
   }, [products])
 

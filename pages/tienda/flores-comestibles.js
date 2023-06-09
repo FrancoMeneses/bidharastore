@@ -8,7 +8,7 @@ import { StoreContext } from "@/context/store"
 
 export default function Florescomestibles({ products }) {
 
-  const titlePage = 'Proveedor de Flores Comestibles | Bidhara'
+  const titlePage = 'Proveedor de Flores Comestibles | Bidhara México'
   const descPage = 'Venta de Flores Comestibles, somos proveedores para tus eventos importantes, platillos únicos, cocina experimental o mixología.'
   const imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686244077/Bidhara/products/shared/FloresComestibles.png'
   const urlPage = 'https://bidharamexico.com/tienda/flores-comestibles'

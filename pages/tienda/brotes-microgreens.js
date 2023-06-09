@@ -8,7 +8,7 @@ import { StoreContext } from "@/context/store"
 
 export default function BrotesMicrogreens({ products }) {
 
-  const titlePage = 'Proveedor de Brotes Comestibles - Microgreens | Bidhara'
+  const titlePage = 'Proveedor de Brotes Comestibles - Microgreens | Bidhara México'
   const descPage = 'Venta de Brotes Comestibles o Microgreens, somos proveedores para tus eventos importantes, platillos únicos, cocina experimental o mixología.'
   const imgUrl = 'https://res.cloudinary.com/dfnqqumsc/image/upload/v1686244076/Bidhara/products/shared/BrotesComestibles.png'
   const urlPage = 'https://bidharamexico.com/tienda/brotes-microgreens'

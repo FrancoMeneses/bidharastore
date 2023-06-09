@@ -11,7 +11,7 @@ export default function Nosotros() {
   return (
     <Layout title={titlePage} description={descPage} url={urlPage}>
       <div className="w-full h-full flex flex-col font-text justify-center items-center">
-        <section id='quienessomos' className="flex flex-col justify-center items-center w-full gap-4 lg:min-h-[400px] bg-fixed bg-center bg-no-repeat text-white font-semibold bg-auto" style={{ backgroundImage: 'url(https://res.cloudinary.com/dfnqqumsc/image/upload/v1686288880/Bidhara/products/top-bgs/nosotros.jpg)'}}>
+        <section id='quienessomos' className="flex flex-col justify-center items-center w-full gap-4 lg:min-h-[400px] bg-fixed bg-bottom bg-no-repeat text-white font-semibold bg-cover" style={{ backgroundImage: 'url(https://res.cloudinary.com/dfnqqumsc/image/upload/v1686345045/Bidhara/products/top-bgs/nosotros.jpg)'}}>
           <div className="flex flex-col justify-center items-center w-full h-full lg:min-h-[400px] backdrop-blur-[1px] px-2 py-5">
             <h1 className="font-semibold text-[20px]">
               ¿Quiénes somos?
@@ -86,7 +86,7 @@ export default function Nosotros() {
           </section>
           <section id='comopreparamos' className="w-full h-auto flex flex-col justify-center items-center lg:flex-row">
             <div className="flex flex-col justify-center items-center py-3 gap-4 w-full h-full text-black">
-              <h2 className="font-semibold text-[20px] text-center">¿Cómo preparamos y distribuimos un pedido?</h2>
+              <h2 className="font-semibold text-[20px] text-center w-[75%] md:w-full">¿Cómo preparamos y distribuimos un pedido?</h2>
               <div className="flex flex-col w-full justify-center items-center gap-2 lg:max-w-5xl">
                 <p className="text-justify px-3 md:px-6">
                   Sabemos que cada producto es único y requiere un proceso de preparación y distribución cuidadoso para garantizar su frescura y calidad.
