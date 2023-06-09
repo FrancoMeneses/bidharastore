@@ -1,5 +1,5 @@
-import connectMongo from 'utils/connectMongo'
-import Test2 from 'models/testModel'
+import connectMongo from '@/utils/connectmongo'
+import Test2 from '@/models/testmodel'
 
 export default async function addTest(req, res) {
   try {
