@@ -20,9 +20,21 @@ export default function ModalCart() {
                 Por pedido      
               </span> 
               : 
+              ''
+              }
+              { currentProduct?.stock === 'Sujeto a disponibilidad' && currentProduct?.category !== 'Escuelas' ? 
               <span className="absolute top-2 left-2 lg:top-3 lg:left-3 bg-[#014D64] text-white font-text rounded-xl px-3 font-semibold text-[14px] md:text-[16px] lg:text-[18px]">
-              Disponible      
-            </span> 
+                Sujeto a disponibilidad      
+              </span> 
+              : 
+              ''
+              }
+              { currentProduct?.stock === 'Disponible' && currentProduct?.category !== 'Escuelas' ? 
+              <span className="absolute top-2 left-2 lg:top-3 lg:left-3 bg-[#014D64] text-white font-text rounded-xl px-3 font-semibold text-[14px] md:text-[16px] lg:text-[18px]">
+                Disponible      
+              </span> 
+              : 
+              ''
               }
               { currentProduct?.category === 'Escuelas' ? 
               <span className="absolute top-2 left-2 lg:top-3 lg:left-3 bg-[#014D64] text-white font-text rounded-xl px-3 font-semibold text-[14px] md:text-[16px] lg:text-[18px]">
