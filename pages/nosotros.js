@@ -11,7 +11,7 @@ export default function Nosotros() {
   return (
     <Layout title={titlePage} description={descPage} url={urlPage}>
       <div className="w-full h-full flex flex-col font-text justify-center items-center">
-        <section id='quienessomos' className="flex flex-col justify-center items-center w-full gap-4 lg:min-h-[400px] bg-fixed bg-bottom bg-no-repeat text-white font-semibold bg-cover" style={{ backgroundImage: 'url(https://res.cloudinary.com/dfnqqumsc/image/upload/v1686345045/Bidhara/products/top-bgs/nosotros.jpg)'}}>
+        <section id='quienessomos' className="flex flex-col justify-center items-center w-full gap-4 lg:min-h-[400px] bg-local md:bg-fixed bg-bottom bg-no-repeat text-white font-semibold bg-cover" style={{ backgroundImage: 'url(https://res.cloudinary.com/dfnqqumsc/image/upload/v1686345045/Bidhara/products/top-bgs/nosotros.jpg)'}}>
           <div className="flex flex-col justify-center items-center w-full h-full lg:min-h-[400px] backdrop-blur-[1px] px-2 py-5">
             <h1 className="font-semibold text-[20px]">
               ¿Quiénes somos?
