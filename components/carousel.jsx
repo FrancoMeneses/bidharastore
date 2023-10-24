@@ -8,7 +8,7 @@ export default function IndexCarousel() {
 
   const handleSlide = (index, item) => {
     if(index === 2){
-      router.push('/tienda/producto/6482288e93f517160ae9b089')
+      router.push('/tienda/producto/64868d3e67c6e399e886e89f')
     }
   }
 
