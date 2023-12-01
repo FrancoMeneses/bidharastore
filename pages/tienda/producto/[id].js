@@ -82,14 +82,18 @@ export default function Singleproductpage({ product }) {
   return (
     <Layout title={titlePage} description={descPage} url={urlPage} image={imgUrl}>
       <Navbartienda></Navbartienda>
-      <div className='w-full px-2 my-3 flex flex-col font-text gap-5 md:px-[50px] justify-center items-center'>
-        <div className='border border-[#0495A8] rounded-lg px-4 py-2 gap-3 flex flex-col w-full justify-center items-center md:flex-row md:justify-center md:gap-[60px] md:px-[20px] max-w-4xl'>
-          <div className='md:flex md:w-[50%] justify-center items-center'>
-            <Image id={product._id} className='w-[150px] md:w-[250px] h-fit object-contain aspect-square'
+      <div className='w-full h-full px-2 my-3 flex flex-col font-text gap-5 md:px-[50px] justify-center items-center'>
+        <div className='border border-[#0495A8] rounded-lg px-4 py-2 gap-3 flex flex-col w-full h-full items-center md:flex-row md:justify-center md:gap-[60px] md:px-[20px] max-w-4xl'>
+          <div className='flex md:w-[50%] flex-col items-center justify-center md:h-[430px]'>
+            <Image id={product._id} className='w-[150px] md:w-[250px] md:h-[90%] object-contain aspect-square'
               src={product.image.url}
               alt={`Foto del producto ${product.name} de la categoría ${product.category}`}
+              priority
               width={600}
               height={300} />
+              <div className='h-[10%] flex flex-col justify-end'>
+                <p className='italic text-[#00243E] text-[12px] place-self-end'>Imagen ilustrativa. El tamaño, forma y color del producto puede no ser exactamente igual a la foto de referencia.</p>
+              </div>
           </div>
           <div className='md:flex-col md:w-[50%] justify-center items-center'>
             <div className='w-full flex flex-col justify-start'>
@@ -127,10 +131,8 @@ export default function Singleproductpage({ product }) {
               <p className='text-[20px] text-[#014D64] font-light'>1 día hábil dentro de la ciudad de Puebla</p>
               <p className='text-[20px] text-[#014D64] font-medium'>
                 *Si requiere un pedido para otra ciudad visite:
-                <Link href='/contacto' className="w-fit h-fit inline-flex justify-center items-center ml-1 md:ml-2 gap-1 font-semibold px-2 border border-[#014D64] hover:border-2 rounded-lg">
-                  <p className="">
+                <Link href='/contacto' className="w-fit h-fit inline-flex justify-center items-center ml-1 md:ml-2 gap-1 font-semibold px-2 border border-[#014D64] hover:border-[1px] rounded-lg">
                     CONTACTO
-                  </p>
                   <FaExternalLinkAlt className='text-[#0495A8] text-[14px] md:text-[16px]' />
                 </Link>
               </p>
