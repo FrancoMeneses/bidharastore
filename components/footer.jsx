@@ -68,7 +68,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="w-full flex justify-center items-center gap-3">
-        <p className='text-[10px] md:text-[14px] text-white font-text'>Derechos de autor © 2023 Bidhara - Gastrogarden</p>
+        <p className='text-[10px] md:text-[14px] text-white font-text'>Derechos de autor © 2024 Bidhara - Gastrogarden</p>
         <Link href='/aviso-privacidad' className='text-[10px] md:text-[14px] text-white font-text underline'>Aviso de privacidad</Link>
       </div>
     </footer>

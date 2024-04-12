@@ -13,7 +13,7 @@ export default function AvisoPrivacidad(){
         <h1 className="text-center font-bold text-[22px]">Aviso de Privacidad Integral</h1>
         <div className="text-justify flex flex-col w-full h-full gap-4">
           <p>
-            Omar Meneses Guarneros mejor conocido como Bidhara, con domicilio en Corregidora 19 Colonia Tepeyac Puebla, Puebla y portal de internet www.bidharamexico.com, es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:
+            Bidhara, con domicilio en Corregidora 19 Colonia Tepeyac Puebla, Puebla y portal de internet www.bidharamexico.com, es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:
           </p>
           <h2 className="font-semibold text-center">
             ¿Para qué fines utilizaremos sus datos personales?
@@ -80,7 +80,7 @@ export default function AvisoPrivacidad(){
             El presente aviso de privacidad puede sufrir modificaciones, cambios o actualizaciones derivadas de nuevos requerimientos legales; de nuestras propias necesidades por los productos o servicios que ofrecemos; de nuestras prácticas de privacidad; de cambios en nuestro modelo de negocio, o por otras causas. Nos comprometemos a mantener actualizado este aviso de privacidad sobre los cambios que pueda sufrir y siempre podrá consultar las actualizaciones que existan en el sitio web www.bidharamexico.com.
           </p>
           <h2 className="font-semibold">
-            Última actualización de este aviso de privacidad: 30/05/2023
+            Última actualización de este aviso de privacidad: 12/04/2024
           </h2>
         </div>
       </main>
