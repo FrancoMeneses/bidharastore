@@ -36,6 +36,13 @@ export default function ModalCart() {
               : 
               ''
               }
+              { currentProduct?.stock === 'No disponible' && currentProduct?.category !== 'Escuelas' ? 
+              <span className="absolute top-2 left-2 lg:top-3 lg:left-3 bg-red-500 text-white font-text rounded-xl px-3 font-semibold text-[14px] md:text-[16px] lg:text-[18px]">
+                No disponible      
+              </span> 
+              : 
+              ''
+              }
               { currentProduct?.category === 'Escuelas' ? 
               <span className="absolute top-2 left-2 lg:top-3 lg:left-3 bg-[#014D64] text-white font-text rounded-xl px-3 font-semibold text-[14px] md:text-[16px] lg:text-[18px]">
                 Envío gratis      
@@ -75,15 +82,15 @@ export default function ModalCart() {
               <div className="flex flex-col items-center justify-center gap-2">
                   <p className="text-[20px] text-[#014D64] font-bold">Cantidad</p>
                   <div className="flex items-center justify-center">
-                    <button type="button" className="w-[50px] h-[30px] bg-[#0495A8] text-[#00243E] rounded-l-lg text-[20px]" id='minus' onClick={handleQuantity}>-</button>
+                    <button disabled={currentProduct?.stock === 'No disponible'} type="button" className="w-[50px] h-[30px] disabled:opacity-50 disabled:pointer-events-none bg-[#0495A8] text-[#00243E] rounded-l-lg text-[20px]" id='minus' onClick={handleQuantity}>-</button>
                     <p className="w-[50px] h-[30px] text-center text-[#00243E] text-[20px] border border-[#0495A8]">{currentProduct?.quantity}</p>
-                    <button type="button" className="w-[50px] h-[30px] bg-[#0495A8] text-[#00243E] rounded-r-lg text-[20px]" id='plus' onClick={handleQuantity}>+</button>
+                    <button disabled={currentProduct?.stock === 'No disponible'} type="button" className="w-[50px] h-[30px] disabled:opacity-50 disabled:pointer-events-none bg-[#0495A8] text-[#00243E] rounded-r-lg text-[20px]" id='plus' onClick={handleQuantity}>+</button>
                   </div>
               </div>
             </div>
             <div className="flex flex-col justify-center items-center gap-2">
               <Link href={`/tienda/producto/${id}`} className="flex-no-shrink bg-[#30CED1] md:hover:border-[#014D64] text-center py-2 w-[170px] text-sm shadow-sm hover:shadow-lg font-medium tracking-wider text-white rounded-full" onClick={hideModal}>Ver producto</Link>
-              <button type="button" className="flex-no-shrink bg-[#0495A8] md:hover:border-[#014D64] text-center py-2 w-[170px] text-sm shadow-sm hover:shadow-lg font-medium tracking-wider text-white rounded-full" onClick={handleAdd}>Agregar al carrito</button>
+              <button disabled={currentProduct?.stock === 'No disponible'} type="button" className="flex-no-shrink disabled:opacity-50 disabled:pointer-events-none bg-[#0495A8] md:hover:border-[#014D64] text-center py-2 w-[170px] text-sm shadow-sm hover:shadow-lg font-medium tracking-wider text-white rounded-full" onClick={handleAdd}>Agregar al carrito</button>
             </div>
           </div>
         </div>

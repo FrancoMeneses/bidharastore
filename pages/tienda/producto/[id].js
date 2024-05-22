@@ -124,7 +124,11 @@ export default function Singleproductpage({ product }) {
             </div>
             <div className='flex flex-col w-full gap-2'>
               <p className='text-[22px] text-[#014D64] font-semibold'>Disponibilidad</p>
-              <p className='text-[20px] text-[#014D64] font-light'>{product.stock}</p>
+              {product?.stock === 'Disponible' ? 
+              <p className='text-[20px] text-[#014D64] font-light'>{product.stock}</p> 
+              :
+              <p className='text-[20px] text-red-500 font-light'>{product.stock}</p>
+              }
             </div>
             <div className='flex flex-col w-full gap-2'>
               <p className='text-[22px] text-[#014D64] font-semibold'>Entrega estimada</p>
@@ -158,15 +162,15 @@ export default function Singleproductpage({ product }) {
             <p className="text-[20px] text-[#014D64] font-bold">Cantidad</p>
             { currentProduct && 
               <div className='w-full flex items-center justify-center'>
-              <button type="button" className="w-[50px] h-[30px] bg-[#0495A8] text-[#00243E] rounded-l-lg text-[20px]" id='minus' onClick={handleProductQuantity}>-</button>
+              <button type="button" disabled={product?.stock === 'No disponible'} className="w-[50px] h-[30px] disabled:opacity-50 disabled:pointer-events-none bg-[#0495A8] text-[#00243E] rounded-l-lg text-[20px]" id='minus' onClick={handleProductQuantity}>-</button>
               <p className="w-[50px] h-[30px] text-center text-[#00243E] text-[20px] border border-[#0495A8]">{currentProduct.quantity}</p>
-              <button type="button" className="w-[50px] h-[30px] bg-[#0495A8] text-[#00243E] rounded-r-lg text-[20px]" id='plus' onClick={handleProductQuantity}>+</button>
+              <button type="button" disabled={product?.stock === 'No disponible'} className="w-[50px] h-[30px] disabled:opacity-50 disabled:pointer-events-none bg-[#0495A8] text-[#00243E] rounded-r-lg text-[20px]" id='plus' onClick={handleProductQuantity}>+</button>
             </div>
             }
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
-            <button type="button" className="flex-no-shrink bg-[#30CED1] md:border-2 md:hover:border-[#014D64] text-center py-2 w-[210px] text-[20px] shadow-sm hover:shadow-lg font-medium tracking-wider text-white rounded-full" onClick={handleNewProduct}>Agregar al carrito</button>
-            <button type="button" className="flex-no-shrink bg-[#0495A8] md:border-2 md:hover:border-[#014D64] text-center py-2 w-[210px] text-[20px] shadow-sm hover:shadow-lg font-medium tracking-wider text-white rounded-full" onClick={handleNewOrder} >Pedir ahora</button>
+            <button disabled={product?.stock === 'No disponible'} type="button" className="flex-no-shrink bg-[#30CED1] md:border-2 md:hover:border-[#014D64] disabled:opacity-50 disabled:pointer-events-none text-center py-2 w-[210px] text-[20px] shadow-sm hover:shadow-lg font-medium tracking-wider text-white rounded-full" onClick={handleNewProduct}>Agregar al carrito</button>
+            <button disabled={product?.stock === 'No disponible'} type="button" className="flex-no-shrink bg-[#0495A8] md:border-2 md:hover:border-[#014D64] disabled:opacity-50 disabled:pointer-events-none text-center py-2 w-[210px] text-[20px] shadow-sm hover:shadow-lg font-medium tracking-wider text-white rounded-full" onClick={handleNewOrder} >Pedir ahora</button>
           </div>
         </div>
       </div>

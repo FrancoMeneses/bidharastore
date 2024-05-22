@@ -17,6 +17,10 @@ export default function Productcard({ product }){
     <span id={product._id} className="absolute top-2 right-2 lg:top-3 lg:right-3 bg-[#014D64] text-white font-text rounded-xl px-3 font-semibold text-[10px] md:text-[12px] lg:text-[18px]">
       Envío gratis      
     </span> : ''}
+    {product?.stock === 'No disponible' ? 
+    <span id={product._id} className="absolute top-2 right-2 lg:top-3 lg:right-3 bg-red-500 text-white font-text rounded-xl px-3 font-semibold text-[10px] md:text-[12px] lg:text-[18px]">
+      No disponible      
+    </span> : ''}
     <Image id={product._id} className='w-[80px] h-fit object-contain lg:w-[160px] aspect-square'
       src={product.image.url}
       alt={`Foto del producto ${product.name} de la categoría ${product.category}`}
